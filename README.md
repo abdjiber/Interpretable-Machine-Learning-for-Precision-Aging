@@ -67,10 +67,10 @@ Linear equations associated to all independent variables when age and education 
 
 ### P-values
 
-[p-values-cogn-3-with-ae](./results/cogn_3_cats/p_values_cogn_3_cats_with_AE_all_vars.md)
-P-values associated to independent variables when age and education are considered in the experiment.
+[P-values with Age and Education](./results/cogn_3_cats/p_values_cogn_3_cats_with_AE_all_vars.csv)
+: P-values associated to independent variables when age and education are considered in the experiment.
 
-[p-values-cogn-3-without-ae](./results/cogn_3_cats/p_values_cogn_3_cats_without_AE_all_vars.md)
+[P-values without Age and Education](./results/cogn_3_cats/p_values_cogn_3_cats_without_AE_all_vars.csv)
 P-values associated to independent variables when age and education are not considered in the experiment.
 
 ## Dependent variable with 5 cognitive categories ($Cogn_5$)
@@ -85,11 +85,10 @@ Linear equations associated to all independent variables when age and education 
 
 ### P-values
 
-[p-values-cogn-5-with-ae](./results/cogn_5_cats/p_values_cogn_5_cats_with_AE_all_vars.md)
+[P-values with Age and Education](./results/cogn_5_cats/p_values_cogn_5_cats_with_AE_all_vars.csv):
 P-values associated to independent variables when age and education are considered in the experiment.
 
-[p-values-cogn-5-without-ae](./results/cogn_5_cats/p_values_cogn_5_cats_without_AE_all_vars.md)
-P-values associated to independent variables when age and education are not considered in the experiment.
+[P-values without Age and Education](./results/cogn_5_cats/p_values_cogn_5_cats_without_AE_all_vars.csv): P-values associated to independent variables when age and education are not considered in the experiment.
 
 ## Dependent variable with 9 cognitive categories ($Cogn_9$)
 
@@ -103,8 +102,6 @@ Linear equations associated to all independent variables when age and education 
 
 ### P-values
 
-[p-values-cogn-9-with-ae](./results/cogn_9_cats/p_values_cogn_9_cats_with_AE_all_vars.md)
-P-values associated to independent variables when age and education are considered in the experiment.
+[P-values with Age and Education](./results/cogn_9_cats/p_values_cogn_9_cats_with_AE_all_vars.csv): P-values associated to independent variables when age and education are considered in the experiment.
 
-[p-values-cogn-9-without-ae](./results/cogn_9_cats/p_values_cogn_9_cats_without_AE_all_vars.md)
-P-values associated to independent variables when age and education are not considered in the experiment.
+[P-values without Age and Education](./results/cogn_9_cats/p_values_cogn_9_cats_without_AE_all_vars.csv): P-values associated to independent variables when age and education are not considered in the experiment.
