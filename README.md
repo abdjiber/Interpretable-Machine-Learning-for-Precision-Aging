@@ -55,7 +55,7 @@ Due to space consideration in the main paper and supplementary material, we repo
 - Linear equations of all independent variables.
 - P-values associated to all bins for continuous variables and category 1 for all independent variables.
 
-## Dependent variable with 3 cognitive categories ($Cogn_3$)
+## Dependent variable with 3 cognitive categories (Cogn_3)
 
 ### Linear equations
 
@@ -70,10 +70,9 @@ Linear equations associated to all independent variables when age and education 
 [P-values with Age and Education](./results/cogn_3_cats/p_values_cogn_3_cats_with_AE_all_vars.csv)
 : P-values associated to independent variables when age and education are considered in the experiment.
 
-[P-values without Age and Education](./results/cogn_3_cats/p_values_cogn_3_cats_without_AE_all_vars.csv)
-P-values associated to independent variables when age and education are not considered in the experiment.
+[P-values without Age and Education](./results/cogn_3_cats/p_values_cogn_3_cats_without_AE_all_vars.csv): P-values associated to independent variables when age and education are not considered in the experiment.
 
-## Dependent variable with 5 cognitive categories ($Cogn_5$)
+## Dependent variable with 5 cognitive categories (Cogn_5)
 
 ### Linear equations
 
@@ -85,12 +84,11 @@ Linear equations associated to all independent variables when age and education 
 
 ### P-values
 
-[P-values with Age and Education](./results/cogn_5_cats/p_values_cogn_5_cats_with_AE_all_vars.csv):
-P-values associated to independent variables when age and education are considered in the experiment.
+[P-values with Age and Education](./results/cogn_5_cats/p_values_cogn_5_cats_with_AE_all_vars.csv): P-values associated to independent variables when age and education are considered in the experiment.
 
 [P-values without Age and Education](./results/cogn_5_cats/p_values_cogn_5_cats_without_AE_all_vars.csv): P-values associated to independent variables when age and education are not considered in the experiment.
 
-## Dependent variable with 9 cognitive categories ($Cogn_9$)
+## Dependent variable with 9 cognitive categories (Cogn_9)
 
 ### Linear equations
 
