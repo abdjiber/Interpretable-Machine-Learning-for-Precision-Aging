@@ -6,3 +6,4 @@ scipy
 pandas
 numpy
 absl-py
+tabulate
