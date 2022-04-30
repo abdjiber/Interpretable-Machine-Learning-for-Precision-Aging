@@ -181,7 +181,7 @@ def get_errors(explanation, class_label, var_type="Categorical", x_lim=None):
     return errors
 
 
-def pvals_to_latex(p_values, path_save, thresold=0.05):
+def save_pvalues(p_values, path_save, thresold=0.05):
     """Formats p_values when saving to a latex format.
 
     Args:
@@ -203,4 +203,9 @@ def pvals_to_latex(p_values, path_save, thresold=0.05):
     df = p_values.copy()
     for col in list(p_values):
         df[col] = p_values[col].apply(lambda x: format_bold(x))
-    df.to_latex(path_save, escape=False)
+    df.to_latex(path_save + ".tex", escape=False)
+
+    # Formatting significant bins to Markdown bold.
+    df_md = df.replace("\\textbf{", "**")
+    df_md = df_md.replace("}", "**")
+    df_md.to_markdown(path_save + ".md", index=True, tablefmt="grid")
