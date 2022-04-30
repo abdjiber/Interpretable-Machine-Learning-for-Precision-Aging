@@ -48,7 +48,7 @@ If you would like to integrate performance comparison in each experiments specif
 python experiments.py --perf_comp
 ```
 
-# SUPLEMENTARY RESULTS
+# SUPPLEMENTARY RESULTS
 
 Due to space consideration in the main paper and supplementary material, we reported results corresponding the 12 most important variables from the EBM model. We provive the following supplementary results:
 
