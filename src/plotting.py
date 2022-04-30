@@ -8,7 +8,7 @@ import src.utils as utils
 from src.config import PLOTS_COLORS, PLOTS_LINESTYLES
 
 
-def plot_linear_eqs(explainer, save_dir, fig_name):
+def plot_linear_eqs(explainer, save_dir, fig_name, type_features="Important"):
     """Plots linear equations between the dependent and independent variables.
 
     Args:
@@ -18,6 +18,8 @@ def plot_linear_eqs(explainer, save_dir, fig_name):
             The path of results saving.
         fig_name: string
             The name of the figure file to save.
+        type_features: string, default "Important"
+            The type of features to plot. Possible values are "Important" and "All".
     Returns:
         None
     """
@@ -28,9 +30,18 @@ def plot_linear_eqs(explainer, save_dir, fig_name):
     classes = explainer.class_names
 
     utils.set_plotting_params()  # Setting the plotting parameters
-    fig = plt.figure(figsize=(18, 12))
-    for idx, feature in enumerate(top_features):
-        ax = fig.add_subplot(3, 4, idx + 1)
+    if type_features == "Important":
+        n_cols, n_lines = (4, 3)
+        figsize = (18, 12)
+        features = top_features
+    else:
+        n_cols, n_lines = (4, 9)
+        figsize = (25, 30)
+        features = original_features
+
+    fig = plt.figure(figsize=figsize)
+    for idx, feature in enumerate(features):
+        ax = fig.add_subplot(n_lines, n_cols, idx + 1)
         explanation = global_exp.data(original_features.index(feature))
         scores = explanation["scores"]
         var_categories = explanation["names"]
@@ -77,7 +88,7 @@ def plot_linear_eqs(explainer, save_dir, fig_name):
                             elinewidth=0.7)
         ax.set_xlabel(feature)
         ax.set_ylabel("Logit" if idx in (0, 4, 8) else "")
-        if idx in (3, 7, 11):
+        if idx in (3, 7, 11, 15, 19, 23, 27, 31, 35):
             ax.legend(bbox_to_anchor=(1, 1), loc="upper left")
 
     fig.tight_layout()

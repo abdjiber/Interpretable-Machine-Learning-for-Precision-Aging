@@ -77,7 +77,7 @@ class Explain:
         self.top_imp_features = top_imp_features[:n_imp]
         return self.top_imp_features
 
-    def show_linear_eqs(self, save_dir, fig_name):
+    def show_linear_eqs(self, save_dir, fig_name, type_features="Important"):
         """Plots the relationship between the dependent and independent
         variable.
 
@@ -91,7 +91,10 @@ class Explain:
         Returns:
             None
         """
-        plotting.plot_linear_eqs(self, save_dir, fig_name)
+        plotting.plot_linear_eqs(self,
+                                 save_dir,
+                                 fig_name,
+                                 type_features=type_features)
 
     def get_statistical_significance(self, top_features, file_names=None):
         """Returns the statistical significance test results (z-scores and p-values).
@@ -140,7 +143,7 @@ class Explain:
         if file_names:
             z_scores.to_csv(file_names["z_scores"] + ".csv")
             p_values.to_csv(file_names["p_values"] + ".csv")
-            utils.pvals_to_latex(p_values, file_names["p_values"] + ".tex")
+            utils.save_pvalues(p_values, file_names["p_values"])
         self.z_scores = z_scores
         self.p_values = p_values
         return z_scores, p_values

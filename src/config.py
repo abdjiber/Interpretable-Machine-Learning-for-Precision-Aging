@@ -7,7 +7,7 @@ DS_COGN_5_CATS = "hrs_cogn_5_cats.csv"
 DS_COGN_3_9_CATS = "hrs_cogn_3_9_cats.csv"
 
 # Experiments saving paths
-PATH_SAVE = "../res_exp_neurips_2022/"
+PATH_SAVE = "./results/"
 
 # Numpy random seed to be used in the experiments
 RANDOM_SEED = 1994
