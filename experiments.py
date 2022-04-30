@@ -53,21 +53,24 @@ def run_experiment(type_exp, n_cogn_cats):
     if type_exp == TypeExp.WITHOUT_AGE_EDUCATION:
         X = X.drop(["Age", "Education"], axis=1)
 
+    suffix_file_names += "_all_vars"
     explainer = Explain(X, y, type_exp=type_exp)
     explainer.fit_ebm()
     top_imp_features = explainer.get_top_imp_features(N_IMP_FEATURES)
     explainer.show_linear_eqs(save_dir=save_dir,
-                              fig_name=f"linear_eqs_{suffix_file_names}.png")
+                              fig_name=f"linear_eqs_{suffix_file_names}.png",
+                              type_features="All")
     stats_file_names = {
         "z_scores": os.path.join(save_dir, f"z_scores_{suffix_file_names}"),
         "p_values": os.path.join(save_dir, f"p_values_{suffix_file_names}"),
     }
     _ = explainer.get_statistical_significance(
-        top_imp_features.index,  # explainer features,
+        explainer.features,  # explainer features,
         file_names=stats_file_names)
     file_name_zscores = os.path.join(save_dir, f"z_scores_{suffix_file_names}")
     explainer.plot_zscores(file_name=file_name_zscores)
 
+    # Running performance comparison if the flag cperf_comp is true.
     if FLAGS.perf_comp:
         Cv = CrossValidate(n_splits=5, random_state=RANDOM_SEED, verbose=False)
         roc_auc_scores = Cv.fit(X, y)
@@ -78,7 +81,6 @@ def run_experiment(type_exp, n_cogn_cats):
 
 def main(argv):
     run_experiment(type_exp=TypeExp.WITH_AGE_EDUCATION, n_cogn_cats=3)
-    """
     run_experiment(type_exp=TypeExp.WITHOUT_AGE_EDUCATION, n_cogn_cats=3)
 
     run_experiment(type_exp=TypeExp.WITH_AGE_EDUCATION, n_cogn_cats=5)
@@ -86,7 +88,6 @@ def main(argv):
 
     run_experiment(type_exp=TypeExp.WITH_AGE_EDUCATION, n_cogn_cats=9)
     run_experiment(type_exp=TypeExp.WITHOUT_AGE_EDUCATION, n_cogn_cats=9)
-    """
 
 
 if __name__ == '__main__':
