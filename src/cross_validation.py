@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import time
 from interpret.glassbox import ExplainableBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
@@ -41,21 +42,37 @@ class CrossValidate:
                               random_state=self.random_state)
         models = self.get_models()
         n_models = len(models)
-        init_scores = np.zeros((n_models, 2), dtype=float)
-        roc_scores = pd.DataFrame(init_scores,
+        init = np.zeros((n_models, 2), dtype=float)
+        roc_scores = pd.DataFrame(init,
                                   columns=["Mean", "STD"],
                                   index=models.keys())
-        for i, (model_name, model) in enumerate(models.items()):
+        duration_models = pd.DataFrame(init,
+                                       columns=["Mean", "STD"],
+                                       index=models.keys())
+        for _, (model_name, model) in enumerate(models.items()):
             scores = np.zeros((self.n_splits, ), dtype=float)
+            duration_k_folds = np.zeros((self.n_splits, ), dtype=float)
             for k, (train_idx, val_idx) in enumerate(skf.split(X, y)):
                 x_train, y_train = X.iloc[train_idx], y[train_idx]
                 x_val, y_val = X.iloc[val_idx], y[val_idx]
+                # Fitting the model
+                time_start = time.time()
                 model.fit(x_train, y_train)
+                time_end = time.time()
+                duration = time_end - time_start
+                # Predicting out-of-fold samples
                 y_pred = model.predict_proba(x_val)
                 auc = self.roc_score(y_val, y_pred)
+                # Computing Scores and time duration
                 scores[k] = auc
+                duration_k_folds[k] = duration
                 if self.verbose:
                     print(f"Model {model_name} Fold {k+1} Score {auc}")
-            roc_scores.loc[model_name] = (scores.mean().round(4),
+
+            roc_scores.loc[model_name] = (scores.mean().round(3),
                                           scores.std().round(3))
-        return roc_scores
+            duration_models.loc[model_name] = (
+                duration_k_folds.mean().round(2),
+                duration_k_folds.std().round(2))
+
+        return (roc_scores, duration_models)
