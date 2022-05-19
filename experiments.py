@@ -72,11 +72,15 @@ def run_experiment(type_exp, n_cogn_cats):
 
     # Running performance comparison if the flag cperf_comp is true.
     if FLAGS.perf_comp:
-        Cv = CrossValidate(n_splits=5, random_state=RANDOM_SEED, verbose=False)
-        roc_auc_scores = Cv.fit(X, y)
+        cv = CrossValidate(n_splits=5, random_state=RANDOM_SEED, verbose=False)
+        (roc_auc_scores, duration_models) = cv.fit(X, y)
         path_save_roc_auc = os.path.join(save_dir,
                                          f"roc_auc_{suffix_file_names}.csv")
         roc_auc_scores.to_csv(path_save_roc_auc, index=True)
+
+        path_save_duration = os.path.join(save_dir,
+                                          f"duration_{suffix_file_names}.csv")
+        duration_models.to_csv(path_save_duration, index=True)
 
 
 def main(argv):
