@@ -1,4 +1,4 @@
-This repository contains the code source of experiments performed in the paper "Impact of daily lifestyle activities on the cognitive health of older adults: An interpretable machine learning approach" submitted at NeurIPS 2022". In this paper, we used the Explainable Boosting Machine (EBM) model to assess the relationship between background factors (Age and Education), daily lifestyle activities, and the cognitive health of older adults.
+This repository contains the code source of experiments performed in the paper "Interpretable Machine Learning for Precision Aging" submitted to the Cognitive Computation journal and additional results. In this paper, we used the Explainable Boosting Machine (EBM) model to assess the relationship between background factors, socio-economic status, daily lifestyle activities, and the cognitive health of older adults.
 
 # MODULES
 
