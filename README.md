@@ -52,18 +52,18 @@ python experiments.py --perf_comp
 
 Due to space considerations in the main paper and supplementary material, we reported results corresponding to the 12 most important variables in the EBM model. We provide the following supplementary results:
 
-- Linear equations of all independent variables.
+- patterns of all independent variables.
 - P-values associated with all bins for continuous variables and category 1 for all independent variables
 
 ## Dependent variable with 3 cognitive categories (Cogn3)
 
-### Linear equations
+### patterns
 
 ![linear-eqs-cogn-3-with-ae](./results/cogn_3_cats/linear_eqs_cogn_3_cats_with_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are considered in the experiment.
+patterns associated with all independent variables when age and education are considered in the experiment.
 
 ![linear-eqs-cogn-3-without-ae](./results/cogn_3_cats/linear_eqs_cogn_3_cats_without_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are not considered in the experiment.
+patterns associated with all independent variables when age and education are not considered in the experiment.
 
 ### P-values
 
@@ -74,13 +74,13 @@ Linear equations associated with all independent variables when age and educatio
 
 ## Dependent variable with 5 cognitive categories (Cogn5)
 
-### Linear equations
+### patterns
 
 ![linear-eqs-cogn-5-with-ae](./results/cogn_5_cats/linear_eqs_cogn_5_cats_with_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are considered in the experiment.
+patterns associated with all independent variables when age and education are considered in the experiment.
 
 ![linear-eqs-cogn-5-without-ae](./results/cogn_5_cats/linear_eqs_cogn_5_cats_without_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are not considered in the experiment.
+patterns associated with all independent variables when age and education are not considered in the experiment.
 
 ### P-values
 
@@ -90,13 +90,13 @@ Linear equations associated with all independent variables when age and educatio
 
 ## Dependent variable with 9 cognitive categories (Cogn9)
 
-### Linear equations
+### patterns
 
 ![linear-eqs-cogn-9-with-ae](./results/cogn_9_cats/linear_eqs_cogn_9_cats_with_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are considered in the experiment.
+patterns associated with all independent variables when age and education are considered in the experiment.
 
 ![linear-eqs-cogn-9-without-ae](./results/cogn_9_cats/linear_eqs_cogn_9_cats_without_AE_all_vars.png)
-Linear equations associated with all independent variables when age and education are not considered in the experiment.
+patterns associated with all independent variables when age and education are not considered in the experiment.
 
 ### P-values
 
