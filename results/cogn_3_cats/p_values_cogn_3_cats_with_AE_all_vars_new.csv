@@ -1,0 +1,125 @@
+,1,2,3
+Often Care Adult (0.0),0.555,0.577,0.135
+Often Care Adult (1.0),0.557,0.571,0.103
+Often Do Activities With Grandchildren (0.0),0.024,0.003,0.842
+Often Do Activities With Grandchildren (1.0),0.022,0.003,0.836
+Often Volunteer Youth (0.0),0.004,0.899,0.161
+Often Volunteer Youth (1.0),0.005,0.896,0.104
+Often Charity Work (0.0),0.0,0.001,0.902
+Often Charity Work (1.0),0.001,0.001,0.893
+Often Education (0.0),0.251,0.252,0.938
+Often Education (1.0),0.311,0.246,0.936
+Often Attend Sports/Social/Club (0.0),0.0,0.0,0.359
+Often Attend Sports/Social/Club (1.0),0.0,0.0,0.306
+Often Attend Non Religious Orgs (0.0),0.047,0.0,0.001
+Often Attend Non Religious Orgs (1.0),0.042,0.0,0.0
+Often Pray Privately (0.0),0.0,0.773,0.0
+Often Pray Privately (1.0),0.001,0.776,0.0
+Often Read (0.0),0.0,0.352,0.0
+Often Read (1.0),0.0,0.34,0.0
+Often Watch Television (0.0),0.251,0.144,0.02
+Often Watch Television (1.0),0.267,0.125,0.008
+Often Do Word Games (0.0),0.0,0.078,0.0
+Often Do Word Games (1.0),0.0,0.078,0.0
+Often Play Cards And Games (0.0),0.445,0.044,0.05
+Often Play Cards And Games (1.0),0.453,0.046,0.032
+Often Do Writing (0.0),0.012,0.277,0.0
+Often Do Writing (1.0),0.026,0.3,0.0
+Often Use Computer (0.0),0.0,0.0,0.0
+Often Use Computer (1.0),0.0,0.0,0.0
+Often Maintenance/Gardening (0.0),0.001,0.019,0.521
+Often Maintenance/Gardening (1.0),0.003,0.015,0.468
+Often Bake Or Cook (0.0),0.112,0.0,0.0
+Often Bake Or Cook (1.0),0.133,0.0,0.0
+Often Sew Or Knit (0.0),0.0,0.989,0.0
+Often Sew Or Knit (1.0),0.002,0.99,0.0
+Often Do Hobby (0.0),0.097,0.547,0.425
+Often Do Hobby (1.0),0.133,0.545,0.362
+Often Play Sport/Exercise (0.0),0.466,0.159,0.379
+Often Play Sport/Exercise (1.0),0.5,0.15,0.317
+Often Walk For 20 Mins (0.0),0.001,0.046,0.0
+Often Walk For 20 Mins (1.0),0.001,0.046,0.0
+Self Ongoing Health Problems (0.0),0.001,0.242,0.0
+Self Ongoing Health Problems (1.0),0.0,0.261,0.0
+Ongoing Phy/Emot Problems In Sp/Chld (0.0),0.003,0.15,0.001
+Ongoing Phy/Emot Problems In Sp/Chld (1.0),0.003,0.145,0.001
+Ongoing Drug/Alcohol Probs Fam Mbr (0.0),0.762,0.0,0.0
+Ongoing Drug/Alcohol Probs Fam Mbr (1.0),0.757,0.0,0.0
+Ongoing Difficulties At Work (0.0),0.001,0.051,0.179
+Ongoing Difficulties At Work (1.0),0.002,0.048,0.149
+Ongoing Financial Strain (0.0),0.017,0.873,0.0
+Ongoing Financial Strain (1.0),0.013,0.873,0.0
+Ongoing Housing Problems (0.0),0.0,0.0,0.0
+Ongoing Housing Problems (1.0),0.0,0.0,0.0
+Ongoing Problems Close Relationship (0.0),0.705,0.296,0.834
+Ongoing Problems Close Relationship (1.0),0.699,0.299,0.827
+Reg Help Ailing Friend/Fam (0.0),0.0,0.012,0.0
+Reg Help Ailing Friend/Fam (1.0),0.0,0.013,0.0
+Difficulty Paying Bills (0.0),0.098,0.437,0.184
+Difficulty Paying Bills (1.0),0.077,0.44,0.215
+Often Vigorous Activity (0.0),0.342,0.931,0.47
+Often Vigorous Activity (1.0),0.393,0.93,0.404
+Often Moderate Activity (0.0),0.0,0.026,0.0
+Often Moderate Activity (1.0),0.0,0.023,0.0
+Often Mild Activity (0.0),0.0,0.778,0.0
+Often Mild Activity (1.0),0.0,0.767,0.0
+Drink Alcohol (0.0),0.0,0.0,0.0
+Drink Alcohol (1.0),0.0,0.0,0.0
+Education (0.0),0.001,0.128,0.0
+Education (0.5),0.002,0.15,0.0
+Education (1.5),0.002,0.15,0.0
+Education (2.5),0.002,0.15,0.0
+Education (4.5),0.0,0.001,0.0
+Education (5.5),0.0,0.001,0.0
+Education (6.5),0.0,0.0,0.0
+Education (7.5),0.0,0.0,0.0
+Education (8.5),0.0,0.624,0.0
+Education (9.5),0.0,0.158,0.0
+Education (10.5),0.0,0.116,0.0
+Education (11.5),0.0,0.0,0.0
+Education (12.5),0.0,0.455,0.0
+Education (13.5),0.005,0.661,0.0
+Education (14.5),0.044,0.694,0.0
+Education (15.5),0.0,0.03,0.0
+Education (16.5),0.0,0.0,0.0
+Education (17.0),0.0,0.0,0.0
+Smoking (0.0),0.0,0.291,0.0
+Smoking (1.0),0.0,0.281,0.001
+Age (60.0),0.0,0.0,0.0
+Age (60.5),0.0,0.0,0.0
+Age (61.5),0.0,0.0,0.0
+Age (62.5),0.0,0.0,0.0
+Age (63.5),0.0,0.0,0.0
+Age (64.5),0.0,0.0,0.0
+Age (65.5),0.0,0.0,0.0
+Age (66.5),0.0,0.009,0.0
+Age (67.5),0.0,0.009,0.0
+Age (68.5),0.0,0.0,0.0
+Age (69.5),0.0,0.0,0.0
+Age (70.5),0.0,0.0,0.0
+Age (71.5),0.026,0.648,0.0
+Age (72.5),0.02,0.067,0.0
+Age (73.5),0.219,0.92,0.421
+Age (74.5),0.0,0.202,0.0
+Age (75.5),0.0,0.202,0.0
+Age (76.5),0.0,0.202,0.0
+Age (77.5),0.0,0.202,0.0
+Age (78.5),0.002,0.127,0.006
+Age (79.5),0.0,0.029,0.0
+Age (80.5),0.0,0.146,0.0
+Age (81.5),0.0,0.001,0.0
+Age (82.5),0.0,0.001,0.0
+Age (83.5),0.0,0.0,0.0
+Age (84.5),0.0,0.0,0.0
+Age (85.5),0.0,0.0,0.0
+Age (86.5),0.0,0.0,0.0
+Age (87.5),0.0,0.0,0.0
+Age (88.5),0.0,0.0,0.0
+Age (89.5),0.0,0.0,0.0
+Age (90.5),0.0,0.004,0.003
+Age (91.5),0.0,0.004,0.002
+Age (92.5),0.001,0.008,0.005
+Age (93.5),0.001,0.008,0.005
+Age (94.5),0.001,0.008,0.005
+Age (96.0),0.001,0.008,0.005
+Age (99.0),0.001,0.008,0.005

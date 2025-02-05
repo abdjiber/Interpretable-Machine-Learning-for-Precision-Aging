@@ -1,0 +1,125 @@
+,1,2,3
+Often Care Adult (0.0),0.591,0.558,-1.493
+Often Care Adult (1.0),-0.588,-0.566,1.63
+Often Do Activities With Grandchildren (0.0),-2.255,2.999,0.199
+Often Do Activities With Grandchildren (1.0),2.287,-3.001,-0.207
+Often Volunteer Youth (0.0),2.858,-0.127,-1.403
+Often Volunteer Youth (1.0),-2.797,0.131,1.624
+Often Charity Work (0.0),3.757,-3.239,-0.123
+Often Charity Work (1.0),-3.373,3.229,0.135
+Often Education (0.0),1.147,-1.145,-0.078
+Often Education (1.0),-1.014,1.161,0.08
+Often Attend Sports/Social/Club (0.0),10.612,-4.487,-0.918
+Often Attend Sports/Social/Club (1.0),-8.853,4.484,1.023
+Often Attend Non Religious Orgs (0.0),-1.988,4.341,-3.254
+Often Attend Non Religious Orgs (1.0),2.029,-4.219,3.607
+Often Pray Privately (0.0),3.539,-0.288,-3.867
+Often Pray Privately (1.0),-3.345,0.284,4.077
+Often Read (0.0),7.656,0.931,-5.578
+Often Read (1.0),-6.805,-0.954,7.283
+Often Watch Television (0.0),1.147,1.461,-2.331
+Often Watch Television (1.0),-1.11,-1.533,2.662
+Often Do Word Games (0.0),5.315,-1.764,-7.829
+Often Do Word Games (1.0),-4.43,1.762,9.178
+Often Play Cards And Games (0.0),-0.763,2.016,-1.961
+Often Play Cards And Games (1.0),0.75,-1.995,2.148
+Often Do Writing (0.0),2.506,1.088,-3.504
+Often Do Writing (1.0),-2.219,-1.036,3.941
+Often Use Computer (0.0),28.183,-8.435,-10.444
+Often Use Computer (1.0),-26.694,9.484,18.219
+Often Maintenance/Gardening (0.0),3.179,-2.344,0.642
+Often Maintenance/Gardening (1.0),-2.956,2.421,-0.726
+Often Bake Or Cook (0.0),1.591,4.477,-3.589
+Often Bake Or Cook (1.0),-1.504,-4.627,4.06
+Often Sew Or Knit (0.0),3.992,0.014,-5.407
+Often Sew Or Knit (1.0),-3.061,-0.013,5.984
+Often Do Hobby (0.0),-1.659,0.603,0.797
+Often Do Hobby (1.0),1.504,-0.606,-0.912
+Often Play Sport/Exercise (0.0),-0.729,1.41,-0.88
+Often Play Sport/Exercise (1.0),0.674,-1.44,1.0
+Often Walk For 20 Mins (0.0),-3.439,-1.999,3.924
+Often Walk For 20 Mins (1.0),3.238,1.992,-4.136
+Self Ongoing Health Problems (0.0),-3.39,-1.169,4.32
+Self Ongoing Health Problems (1.0),3.596,1.124,-3.716
+Ongoing Phy/Emot Problems In Sp/Chld (0.0),2.965,1.441,-3.19
+Ongoing Phy/Emot Problems In Sp/Chld (1.0),-2.99,-1.458,3.224
+Ongoing Drug/Alcohol Probs Fam Mbr (0.0),-0.303,-4.26,3.857
+Ongoing Drug/Alcohol Probs Fam Mbr (1.0),0.31,4.483,-3.736
+Ongoing Difficulties At Work (0.0),3.243,-1.95,-1.344
+Ongoing Difficulties At Work (1.0),-3.033,1.979,1.442
+Ongoing Financial Strain (0.0),2.377,-0.16,-5.252
+Ongoing Financial Strain (1.0),-2.476,0.16,5.1
+Ongoing Housing Problems (0.0),-5.127,6.78,3.918
+Ongoing Housing Problems (1.0),6.165,-6.656,-3.655
+Ongoing Problems Close Relationship (0.0),-0.378,1.045,-0.21
+Ongoing Problems Close Relationship (1.0),0.386,-1.039,0.218
+Reg Help Ailing Friend/Fam (0.0),4.706,2.511,-5.224
+Reg Help Ailing Friend/Fam (1.0),-4.58,-2.482,5.901
+Difficulty Paying Bills (0.0),-1.657,0.777,1.329
+Difficulty Paying Bills (1.0),1.767,-0.772,-1.241
+Often Vigorous Activity (0.0),0.951,-0.087,-0.723
+Often Vigorous Activity (1.0),-0.854,0.088,0.835
+Often Moderate Activity (0.0),5.095,-2.222,-3.778
+Often Moderate Activity (1.0),-4.515,2.276,4.755
+Often Mild Activity (0.0),11.19,-0.282,-5.031
+Often Mild Activity (1.0),-8.844,0.296,6.685
+Drink Alcohol (0.0),16.216,-9.666,-7.752
+Drink Alcohol (1.0),-13.2,9.84,9.321
+Education (0.0),3.212,-1.524,-4.675
+Education (0.5),3.098,-1.438,-4.539
+Education (1.5),3.098,-1.438,-4.539
+Education (2.5),3.098,-1.438,-4.539
+Education (4.5),10.51,-3.269,-6.131
+Education (5.5),10.51,-3.269,-6.131
+Education (6.5),11.549,-3.746,-5.727
+Education (7.5),13.273,-3.59,-8.986
+Education (8.5),8.709,0.49,-5.875
+Education (9.5),5.943,1.413,-4.031
+Education (10.5),8.731,1.572,-4.542
+Education (11.5),7.655,5.513,-5.318
+Education (12.5),-5.068,0.747,6.871
+Education (13.5),-2.782,-0.438,3.96
+Education (14.5),-2.012,-0.394,4.303
+Education (15.5),-6.309,-2.171,9.875
+Education (16.5),-5.663,-7.215,8.462
+Education (17.0),-5.663,-7.215,8.462
+Smoking (0.0),-3.505,1.057,3.725
+Smoking (1.0),3.959,-1.079,-3.41
+Age (60.0),-6.111,5.498,6.463
+Age (60.5),-6.111,5.498,6.463
+Age (61.5),-5.936,5.388,6.345
+Age (62.5),-5.076,5.553,5.579
+Age (63.5),-7.43,5.706,10.554
+Age (64.5),-7.43,5.706,10.554
+Age (65.5),-6.695,5.995,8.234
+Age (66.5),-5.703,2.597,8.461
+Age (67.5),-5.703,2.597,8.461
+Age (68.5),-7.362,3.982,8.615
+Age (69.5),-7.362,3.982,8.615
+Age (70.5),-7.051,3.942,9.057
+Age (71.5),-2.232,0.457,4.002
+Age (72.5),-2.321,1.835,4.354
+Age (73.5),1.23,-0.1,-0.804
+Age (74.5),4.53,-1.276,-4.132
+Age (75.5),4.53,-1.276,-4.132
+Age (76.5),4.53,-1.276,-4.132
+Age (77.5),4.53,-1.276,-4.132
+Age (78.5),3.127,-1.528,-2.724
+Age (79.5),5.697,-2.183,-4.217
+Age (80.5),6.832,-1.454,-5.678
+Age (81.5),7.388,-3.314,-5.992
+Age (82.5),7.782,-3.199,-5.874
+Age (83.5),7.164,-6.913,-5.076
+Age (84.5),7.164,-6.913,-5.076
+Age (85.5),7.164,-6.913,-5.076
+Age (86.5),9.671,-7.992,-6.225
+Age (87.5),9.982,-7.982,-6.524
+Age (88.5),8.475,-7.32,-4.844
+Age (89.5),8.543,-7.155,-4.809
+Age (90.5),3.835,-2.848,-2.997
+Age (91.5),3.891,-2.882,-3.041
+Age (92.5),3.393,-2.647,-2.788
+Age (93.5),3.393,-2.647,-2.788
+Age (94.5),3.393,-2.647,-2.788
+Age (96.0),3.393,-2.647,-2.788
+Age (99.0),3.393,-2.647,-2.788
