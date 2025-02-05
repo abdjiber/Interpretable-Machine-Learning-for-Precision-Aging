@@ -1,5 +1,6 @@
 xgboost
-interpret
+interpret==0.2.7
+interpret-core==0.2.7
 scikit-learn
 matplotlib
 scipy
@@ -7,3 +8,4 @@ pandas
 numpy
 absl-py
 tabulate
+scikit-posthocs
