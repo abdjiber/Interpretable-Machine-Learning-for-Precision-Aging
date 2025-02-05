@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 import time
 from interpret.glassbox import ExplainableBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.neural_network import MLPClassifier
@@ -20,11 +22,15 @@ class CrossValidate:
         LR = LogisticRegression
         MLP = MLPClassifier
         XGB = XGBClassifier
+        SVM = SVC
+        RF = RandomForestClassifier
         models = {
             "EBM": EBM(n_jobs=-1),
             "LR": LR(n_jobs=-1),
             "MLP": MLP(),
             "XGB": XGB(n_jobs=-1),
+            "SVC": SVM(gamma="auto", probability=True),
+            "RF": RF(n_jobs=-1)
         }
         return models
 
@@ -39,14 +45,15 @@ class CrossValidate:
 
     def cv(self, X, y):
         skf = StratifiedKFold(n_splits=self.n_splits,
-                              random_state=self.random_state)
+                              random_state=self.random_state, shuffle=True)
         models = self.get_models()
         n_models = len(models)
         init = np.zeros((n_models, 2), dtype=float)
-        roc_scores = pd.DataFrame(init,
+        roc_scores = pd.DataFrame(np.zeros((n_models, 2), dtype=float),
                                   columns=["Mean", "STD"],
-                                  index=models.keys())
-        duration_models = pd.DataFrame(init,
+                                  index=list(models.keys()))
+        scores_k_folds = {}
+        duration_models = pd.DataFrame(np.zeros((n_models, 2), dtype=float),
                                        columns=["Mean", "STD"],
                                        index=models.keys())
         for _, (model_name, model) in enumerate(models.items()):
@@ -68,11 +75,8 @@ class CrossValidate:
                 duration_k_folds[k] = duration
                 if self.verbose:
                     print(f"Model {model_name} Fold {k+1} Score {auc}")
+            roc_scores.loc[model_name] = [scores.mean().round(3), scores.std().round(3)]
+            scores_k_folds[model_name] = scores
+            duration_models.loc[model_name] = [duration_k_folds.mean().round(2), duration_k_folds.std().round(2)]
 
-            roc_scores.loc[model_name] = (scores.mean().round(3),
-                                          scores.std().round(3))
-            duration_models.loc[model_name] = (
-                duration_k_folds.mean().round(2),
-                duration_k_folds.std().round(2))
-
-        return (roc_scores, duration_models)
+        return (roc_scores, duration_models, scores_k_folds)

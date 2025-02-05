@@ -2,6 +2,9 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 import pandas as pd
+from scipy.stats import kruskal
+from scikit_posthocs import posthoc_tukey
+
 
 
 def set_plotting_params(f_size=15,
@@ -70,6 +73,7 @@ def load_data(ds_path, output_var, drop_cols=None):
     """
 
     df = pd.read_csv(ds_path)
+    print(list(df))
     X, y = df.drop([output_var], axis=1), df[output_var]
     if drop_cols:
         X = X.drop(drop_cols, axis=1)
@@ -82,6 +86,7 @@ def load_data(ds_path, output_var, drop_cols=None):
         },
         axis=1)
     X = make_col_names_title_format(X)
+    y = y.astype(int)
     return X, y
 
 
@@ -206,6 +211,25 @@ def save_pvalues(p_values, path_save, thresold=0.05):
     df.to_latex(path_save + ".tex", escape=False)
 
     # Formatting significant bins to Markdown bold.
-    df_md = df.replace("\\textbf{", "**")
-    df_md = df_md.replace("}", "**")
-    df_md.to_markdown(path_save + ".md", index=True, tablefmt="grid")
+    # df_md = df.replace("\\textbf{", "**")
+    # df_md = df_md.replace("}", "**")
+    # df_md.to_markdown(path_save + ".md", index=True, tablefmt="grid")
+
+def stat_comparisons(scores_kf, file_name):
+    ebm = scores_kf["EBM"]
+    xgb = scores_kf["XGB"]
+    lr = scores_kf["LR"]
+    svc = scores_kf["SVC"]
+    mlp = scores_kf["MLP"]
+    rf = scores_kf["RF"]
+
+    df_posthoc = pd.DataFrame()
+    n = len(ebm)
+    df_posthoc["scores"] = np.r_[ebm, xgb, lr, svc, mlp, rf]
+    df_posthoc["models"] = ["EBM"]*n + ["XGB"]*n + ["LR"]*n + ["SVC"]*n + ["MLP"]*n + ["RF"]*n
+    print(kruskal(ebm, xgb, lr, svc, mlp, rf))
+    tukey_df = posthoc_tukey(df_posthoc, val_col="scores", group_col="models").round(3)
+    print(tukey_df)
+    tukey_df.to_latex(file_name + "_tukey.tex", escape=False)
+    tukey_df.to_csv(file_name + "_tukey.csv", header=True, index=False)
+

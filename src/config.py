@@ -1,5 +1,5 @@
 # Base path from the dataset
-BASE_PATH_DS = "~/Téléchargements/venv/datasets/vancouver/"
+BASE_PATH_DS = "."
 
 # Dataset used in the main experiment
 DS_COGN_5_CATS = "hrs_cogn_5_cats.csv"
@@ -7,7 +7,7 @@ DS_COGN_5_CATS = "hrs_cogn_5_cats.csv"
 DS_COGN_3_9_CATS = "hrs_cogn_3_9_cats.csv"
 
 # Experiments saving paths
-PATH_SAVE = "./results/"
+PATH_SAVE = "./results_feb_2025/"
 
 # Numpy random seed to be used in the experiments
 RANDOM_SEED = 1994

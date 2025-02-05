@@ -7,7 +7,10 @@ from scipy import stats
 import src.plotting as plotting
 import src.utils as utils
 from src.type_experiments import TypeExp
+from src.config import RANDOM_SEED
 
+import interpret
+print(interpret.__version__)
 
 class Explain:
     """Class used to provide explanations of the EBM model.
@@ -42,8 +45,9 @@ class Explain:
         self.z_scores = None
         self.p_values = None
 
-    def fit_ebm(self):
+    def fit(self):
         """Fits an EBM model"""
+        np.random.seed(RANDOM_SEED)
         ebm = ExplainableBoostingClassifier()
         ebm.fit(self.X, self.y)
         ebm_global = ebm.explain_global()
@@ -53,6 +57,48 @@ class Explain:
         self.standard_devs = ebm.term_standard_deviations_
         self.intercepts = ebm.intercept_
         self.global_exp = ebm_global
+
+    def get_factor_effects(self):
+        elements = ["Score", "Err Low", "Err High"]
+        categories_factors = ["Category", "Factors"]
+
+        ebm_global = self.global_exp
+        classes = ebm_global.data(0)["meta"]["label_names"]
+        col_indexes = pd.MultiIndex.from_product([elements, classes])
+        categories_factors = pd.Index(categories_factors)
+        col_indexes = col_indexes.map(lambda x: f"{x[0]} G{x[1]}")
+        col_indexes = categories_factors.append(col_indexes)
+        df_scores = pd.DataFrame(columns=col_indexes)
+
+        features = self.features
+        classes = self.class_names
+
+
+        # features_wae = []
+        # for feature in features:
+        #   if feature not in ("Age", "Education"):
+        #        features_wae.append(feature)
+
+        i = 0
+        for idx, feature in enumerate(features):
+            explanation = ebm_global.data(features.index(feature))
+            feature_cats = explanation["names"] if feature not in ("Age", "Education") else explanation["names"][:-1]
+            scores = explanation["scores"]
+            for idx_cat, cat in enumerate(feature_cats):
+                for idx_cl, class_label in enumerate(classes):
+                    up_err = explanation["upper_bounds"][idx_cat, idx_cl]
+                    low_err = explanation["lower_bounds"][idx_cat, idx_cl]
+                    df_scores.loc[i, categories_factors] = [feature, cat]
+                    df_scores.loc[i, f"Score G{class_label}"] = scores[idx_cat, idx_cl]
+                    df_scores.loc[i, f"Err Low G{class_label}"]  = low_err
+                    df_scores.loc[i, f"Err High G{class_label}"]  = up_err
+                i += 1
+        df_scores["Factors"] = df_scores["Factors"].astype(float).astype(int)
+        self.effects = df_scores
+        return self.effects
+
+    def plot_factor_effects(self, file_name):
+        plotting.plot_effects(self.effects, file_name)
 
     def show_global_explanations(self):
         """Shows global explanations obtained with the EBM model."""
@@ -124,7 +170,7 @@ class Explain:
             for idx_cat, cat in enumerate(var_categories):
                 if cat == '0':
                     continue
-                index_name = f"{feature} ({int(np.ceil(cat))})" if cat != '1' else feature
+                index_name = f"{feature} ({cat})" if cat != '1' else feature
                 res_indexes.append(index_name)
                 for idx_class, class_name in enumerate(self.class_names):
                     idx_cat = idx_cat if idx_cat < len(scores) else idx_cat - 1
@@ -174,3 +220,4 @@ class Explain:
         else:
             z_socres = self.z_scores
         plotting.plot_zscores(z_socres, file_name=file_name)
+

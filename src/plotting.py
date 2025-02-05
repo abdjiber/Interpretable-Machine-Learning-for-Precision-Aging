@@ -2,6 +2,7 @@ import os
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from matplotlib import cm
 
 import src.utils as utils
@@ -29,6 +30,7 @@ def plot_linear_eqs(explainer, save_dir, fig_name, type_features="Important"):
     intercepts = explainer.intercepts
     classes = explainer.class_names
 
+    df_scores = pd.DataFrame()
     utils.set_plotting_params()  # Setting the plotting parameters
     if type_features == "Important":
         n_cols, n_lines = (4, 3)
@@ -87,7 +89,7 @@ def plot_linear_eqs(explainer, save_dir, fig_name, type_features="Important"):
                             linewidth=6,
                             elinewidth=0.7)
         ax.set_xlabel(feature)
-        ax.set_ylabel("Logit" if idx in (0, 4, 8) else "")
+        ax.set_ylabel("Logit" if idx in (0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40) else "")
         if idx in (3, 7, 11, 15, 19, 23, 27, 31, 35):
             ax.legend(bbox_to_anchor=(1, 1), loc="upper left")
 
@@ -133,3 +135,82 @@ def plot_zscores(z_scores,
               mode="expand",
               ncol=3)
     fig.savefig(file_name + ".png", bbox_inches='tight', dpi=100)
+
+
+def plot_effects(df, file_name):
+    # Set up the plot
+    df_lifestyles = df[~df["Category"].isin(["Age", "Education"])]
+    factors = df_lifestyles.Factors.unique()
+    for factor in factors:
+        df_factor = df_lifestyles[df_lifestyles["Factors"] == factor]
+        fig = plot_factors(df_factor, factor, is_age_edu=False)
+        fig.savefig(file_name + f"_factor_{factor}.png", dpi=100)
+    
+    categories = df["Category"].unique()
+    if "Age" in categories:
+        df_age =  df[df.Category == "Age"]
+        df_age.iloc[:, :] = df_age.apply(pd.to_numeric, errors='coerce')
+        fig = plot_factors(df_age, factor="Age", is_age_edu=True)
+        fig.savefig(file_name + f"_age.png", dpi=100)
+
+    if "Education" in categories:
+        df_edu =  df[df.Category == "Education"]
+        df_edu.iloc[:, :] = df_edu.apply(pd.to_numeric, errors='coerce')
+        fig = plot_factors(df_edu, factor="Education", is_age_edu=True)
+        fig.savefig(file_name + f"_education.png", dpi=100)
+    
+
+def plot_factors(df_factor, factor=None, is_age_edu=False):
+    fig, ax = plt.subplots(figsize=(14, 12))
+    # Define colors for each group
+    # colors = ['red', 'blue', 'green']
+    colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta', 'black', 'purple', 'orange']
+    groups = [col for col in df_factor.columns if "Score" in col] # ["Score G1", "Score G2", "Score G3"]
+    err_lows = [col for col in df_factor.columns if "Low" in col] # ["Err Low G1", "Err Low G2", "Err Low G3"]
+    err_highs = [col for col in df_factor.columns if "High" in col] # ["Err High G1", "Err High G2", "Err High G3"]
+    new_labels = ["Low", "Central", "High"] if len(groups) == 3 else [f"Cogn {i}" for i in range(1, len(groups) + 1)]
+    _colors = colors[:len(groups)]
+    # Loop through each group and plot
+    for i, (group, err_low, err_high, color, label) in enumerate(zip(groups, err_lows, err_highs, _colors, new_labels)):
+        err = [df_factor[group] - df_factor[err_low], df_factor[err_high] - df_factor[group]]
+        if not is_age_edu:
+            x = df_factor[group]
+            y = range(len(df_factor))
+            fmt = "o"
+        else:
+            x = df_factor["Factors"]
+            y = df_factor[group]
+            fmt="-o"
+       
+        ax.errorbar(
+            x, y,
+            xerr=err if not is_age_edu else None,
+            yerr=err if is_age_edu else None,
+            fmt=fmt, color=color, label=label,
+            capsize=3, elinewidth=1, markeredgewidth=1
+        )
+
+    if not is_age_edu:
+    # Add a vertical reference line at x = 0
+        ax.axvline(x=0, color="black", linestyle="--", linewidth=1.5, label="Zero Reference")
+
+        # Set x-axis limits to range from -0.25 to 0.25
+        ax.set_xlim(-0.3, 0.3)
+
+        # Formatting
+        ax.set_yticks(range(len(df_factor)))
+        ax.set_yticklabels(df_factor["Category"])
+        ax.set_xlabel("Score")
+        ax.set_title(f"Effect Sizes of Activities Across Groups (Factor = {factor})")
+        ax.invert_yaxis()  # Invert y-axis for readability
+    else:
+        # ax.set_ylim(-0.3, 0.3)
+        ax.set_xlabel(f"{factor} (Years)")
+        ax.set_ylabel("Score")
+        ax.set_title(f"Score Trends by {factor} with Confidence Intervals")
+
+    # Show the updated plot
+    ax.legend()
+    ax.grid(True, linestyle="--", alpha=0.5)
+    fig.tight_layout()
+    return fig
